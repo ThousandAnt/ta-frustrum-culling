@@ -1,0 +1,19 @@
+{
+    "name": "ThousandAnt.FrustrumCulling.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:815b25d4f058ade498272b7a233c7dd2",
+        "GUID:d8b63aba1907145bea998dd612889d6b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

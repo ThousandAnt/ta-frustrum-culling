@@ -1,0 +1,2081 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0a588596e48a14095a0f4f0a77e35c, type: 3}
+  m_Name: RenderBatch
+  m_EditorClassIdentifier: 
+  Material: {fileID: 2100000, guid: 6a09904ec7a635c44913afe68df1fa21, type: 2}
+  Mesh: {fileID: 43209135924021726, guid: 7f80ea7a20fee164cb16dedccc94b865, type: 2}
+  Transforms:
+  - Position:
+      x: 0.78999996
+      y: 0
+      z: 0.49
+    Rotation:
+      x: -0
+      y: 0
+      z: 0
+  - Position:
+      x: -0.44
+      y: 0
+      z: 2.3200002
+    Rotation:
+      x: -0
+      y: 61.14953
+      z: -0
+  - Position:
+      x: 1.34
+      y: 0
+      z: 2.21
+    Rotation:
+      x: -0
+      y: 61.14953
+      z: -0
+  - Position:
+      x: -2.1799998
+      y: 0
+      z: 1.4300001
+    Rotation:
+      x: -0
+      y: 61.14953
+      z: -0
+  - Position:
+      x: -1.8
+      y: 0
+      z: -0.14999998
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: -1.0699999
+      y: 0
+      z: 1.53
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: 1.3000001
+      y: 0
+      z: 1.34
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 2.16
+      y: 0
+      z: 0.22
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 2.48
+      y: 0
+      z: 2.1
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -1.55
+      y: 0
+      z: 3.27
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -2.81
+      y: 0
+      z: 2.26
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -3.18
+      y: 0
+      z: 0.33
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 0
+      y: 0
+      z: 3.63
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 1.24
+      y: 0
+      z: 3.28
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 2.88
+      y: 0
+      z: 2.64
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 3.06
+      y: 0
+      z: 1.1800001
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -3.05
+      y: 0
+      z: 3.68
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -2.73
+      y: 0
+      z: -1.22
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -1.3199999
+      y: 0
+      z: -0.95000005
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -0.15999997
+      y: 0
+      z: -0.91999996
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 1.2
+      y: 0
+      z: -1.1
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 2.39
+      y: 0
+      z: -1.14
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -5.81
+      y: 0
+      z: 1.1299999
+    Rotation:
+      x: -0
+      y: 0
+      z: 0
+  - Position:
+      x: -7.04
+      y: 0
+      z: 2.96
+    Rotation:
+      x: -0
+      y: 61.14953
+      z: -0
+  - Position:
+      x: -5.2599998
+      y: 0
+      z: 2.85
+    Rotation:
+      x: -0
+      y: 61.14953
+      z: -0
+  - Position:
+      x: -8.780001
+      y: 0
+      z: 2.07
+    Rotation:
+      x: -0
+      y: 61.14953
+      z: -0
+  - Position:
+      x: -8.4
+      y: 0
+      z: 0.49
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: -7.67
+      y: 0
+      z: 2.1699998
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: -5.2999997
+      y: 0
+      z: 1.9799999
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -4.4399996
+      y: 0
+      z: 0.8599999
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -4.12
+      y: 0
+      z: 2.7399998
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -8.15
+      y: 0
+      z: 3.9099998
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -9.41
+      y: 0
+      z: 2.8999999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -9.780001
+      y: 0
+      z: 0.9699999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -6.6
+      y: 0
+      z: 4.27
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -5.36
+      y: 0
+      z: 3.9199998
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -3.7199998
+      y: 0
+      z: 3.28
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -3.54
+      y: 0
+      z: 1.8199999
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -9.65
+      y: 0
+      z: 4.32
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -9.33
+      y: 0
+      z: -0.58000016
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -7.92
+      y: 0
+      z: -0.31000018
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -6.7599998
+      y: 0
+      z: -0.2800001
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -5.4
+      y: 0
+      z: -0.46000016
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -4.21
+      y: 0
+      z: -0.5000001
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -6.91
+      y: 0
+      z: 1.34
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -7.9000006
+      y: 0
+      z: 7.63
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: -5.53
+      y: 0
+      z: 7.4399996
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -4.6700006
+      y: 0
+      z: 6.3199997
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -4.3500004
+      y: 0
+      z: 8.2
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -8.380001
+      y: 0
+      z: 9.37
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -9.639999
+      y: 0
+      z: 8.36
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -10.01
+      y: 0
+      z: 6.4300003
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -6.8300004
+      y: 0
+      z: 9.73
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -5.5900006
+      y: 0
+      z: 9.379999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -3.9500003
+      y: 0
+      z: 8.74
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -3.7700005
+      y: 0
+      z: 7.2799997
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -9.880001
+      y: 0
+      z: 9.78
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -9.559999
+      y: 0
+      z: 4.88
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -8.150001
+      y: 0
+      z: 5.1499996
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -6.9900002
+      y: 0
+      z: 5.1800003
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -5.6300006
+      y: 0
+      z: 5
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -4.4400005
+      y: 0
+      z: 4.96
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -7.1400003
+      y: 0
+      z: 6.8
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -1.75
+      y: 0
+      z: 7.37
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: 0.62000036
+      y: 0
+      z: 7.1799994
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 1.48
+      y: 0
+      z: 6.0599995
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 1.8000002
+      y: 0
+      z: 7.9399996
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -2.23
+      y: 0
+      z: 9.11
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -3.4899993
+      y: 0
+      z: 8.099999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -3.86
+      y: 0
+      z: 6.17
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: -0.6799998
+      y: 0
+      z: 9.469999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 0.55999994
+      y: 0
+      z: 9.119999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 2.2000003
+      y: 0
+      z: 8.48
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 2.38
+      y: 0
+      z: 7.0199995
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -3.73
+      y: 0
+      z: 9.5199995
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -3.4099994
+      y: 0
+      z: 4.62
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -2
+      y: 0
+      z: 4.8899994
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: -0.8399997
+      y: 0
+      z: 4.92
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 0.52
+      y: 0
+      z: 4.74
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 1.7100003
+      y: 0
+      z: 4.7
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: -0.9899998
+      y: 0
+      z: 6.54
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 4.5599995
+      y: 0
+      z: 7.12
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: 6.93
+      y: 0
+      z: 6.9300003
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 7.7899995
+      y: 0
+      z: 5.8100004
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 8.109999
+      y: 0
+      z: 7.6900005
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 4.0799994
+      y: 0
+      z: 8.860001
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 2.8200002
+      y: 0
+      z: 7.8500004
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 2.4499996
+      y: 0
+      z: 5.92
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 5.6299996
+      y: 0
+      z: 9.219999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 6.8699994
+      y: 0
+      z: 8.869999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 8.51
+      y: 0
+      z: 8.2300005
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 8.689999
+      y: 0
+      z: 6.7700005
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 2.5799994
+      y: 0
+      z: 9.27
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 2.9
+      y: 0
+      z: 4.37
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 4.3099995
+      y: 0
+      z: 4.6400003
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 5.47
+      y: 0
+      z: 4.67
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 6.8299994
+      y: 0
+      z: 4.49
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 8.02
+      y: 0
+      z: 4.45
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 5.3199997
+      y: 0
+      z: 6.29
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 5.0299997
+      y: 0
+      z: 1.45
+    Rotation:
+      x: -0
+      y: 310.83942
+      z: 0
+  - Position:
+      x: 7.4
+      y: 0
+      z: 1.26
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 8.26
+      y: 0
+      z: 0.1400001
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -0.52
+      y: 0.038
+      z: 0.49
+    Rotation:
+      x: -0
+      y: 0
+      z: 0
+  - Position:
+      x: 8.58
+      y: 0
+      z: 2.0200002
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 4.5499997
+      y: 0
+      z: 3.1900008
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 3.2900004
+      y: 0
+      z: 2.18
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 2.9199998
+      y: 0
+      z: 0.25000024
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 6.1
+      y: 0
+      z: 3.5499995
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 7.3399997
+      y: 0
+      z: 3.199999
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 8.98
+      y: 0
+      z: 2.5600002
+    Rotation:
+      x: -0
+      y: 53.87011
+      z: -0
+  - Position:
+      x: 9.16
+      y: 0
+      z: 1.1000001
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 3.0499997
+      y: 0
+      z: 3.6000006
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 3.3700004
+      y: 0
+      z: -1.3
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 4.7799997
+      y: 0
+      z: -1.03
+    Rotation:
+      x: 0
+      y: 189.91139
+      z: 0
+  - Position:
+      x: 5.94
+      y: 0
+      z: -0.99999976
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 7.2999997
+      y: 0
+      z: -1.1800001
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 8.49
+      y: 0
+      z: -1.22
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 5.79
+      y: 0
+      z: 0.6200001
+    Rotation:
+      x: 0
+      y: 290.01468
+      z: 0
+  - Position:
+      x: 5.85
+      y: 0
+      z: 2.3
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 4.38
+      y: 0
+      z: 0.41000003
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 5.8
+      y: 0
+      z: 7.7200003
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 3.81
+      y: 0
+      z: 6.0699997
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: 6.2
+      y: 0
+      z: 5.8100004
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -2.69
+      y: 0
+      z: 6.3900003
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -0.59
+      y: 0
+      z: 8.3
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -0.099999994
+      y: 0
+      z: 6.0600004
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -8.440001
+      y: 0
+      z: 6.6400003
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -6.02
+      y: 0
+      z: 6.12
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -6.4
+      y: 0
+      z: 8.76
+    Rotation:
+      x: -0
+      y: 355.27063
+      z: 0
+  - Position:
+      x: -1.7099999
+      y: 0
+      z: -0.34999996
+    Rotation:
+      x: -0
+      y: 180
+      z: -0
+  - Position:
+      x: -0.48
+      y: 0
+      z: -2.18
+    Rotation:
+      x: 0
+      y: 241.14954
+      z: 0
+  - Position:
+      x: -2.26
+      y: 0
+      z: -2.07
+    Rotation:
+      x: 0
+      y: 241.14954
+      z: 0
+  - Position:
+      x: 1.26
+      y: 0
+      z: -1.29
+    Rotation:
+      x: 0
+      y: 241.14954
+      z: 0
+  - Position:
+      x: 0.88
+      y: 0
+      z: 0.29000002
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: 0.15000004
+      y: 0
+      z: -1.3899999
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: -2.22
+      y: 0
+      z: -1.2
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -3.0800002
+      y: 0
+      z: -0.07999992
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -3.4
+      y: 0
+      z: -1.96
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 0.63
+      y: 0
+      z: -3.1299999
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 1.8899999
+      y: 0
+      z: -2.12
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 2.26
+      y: 0
+      z: -0.18999994
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -0.91999996
+      y: 0
+      z: -3.49
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -2.1599998
+      y: 0
+      z: -3.1399999
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -3.8000002
+      y: 0
+      z: -2.5
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -3.98
+      y: 0
+      z: -1.04
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 2.1299999
+      y: 0
+      z: -3.5400002
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 1.81
+      y: 0
+      z: 1.3600001
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 0.40000004
+      y: 0
+      z: 1.0900002
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -0.76
+      y: 0
+      z: 1.06
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -2.12
+      y: 0
+      z: 1.24
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -3.3100002
+      y: 0
+      z: 1.28
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 4.89
+      y: 0
+      z: -0.9899998
+    Rotation:
+      x: -0
+      y: 180
+      z: -0
+  - Position:
+      x: 6.12
+      y: 0
+      z: -2.82
+    Rotation:
+      x: 0
+      y: 241.14954
+      z: 0
+  - Position:
+      x: 4.3399997
+      y: 0
+      z: -2.7099998
+    Rotation:
+      x: 0
+      y: 241.14954
+      z: 0
+  - Position:
+      x: 7.86
+      y: 0
+      z: -1.9299998
+    Rotation:
+      x: 0
+      y: 241.14954
+      z: 0
+  - Position:
+      x: 7.48
+      y: 0
+      z: -0.34999996
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: 6.75
+      y: 0
+      z: -2.0299997
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: 4.3799996
+      y: 0
+      z: -1.8399999
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 3.52
+      y: 0
+      z: -0.7199998
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 3.1999998
+      y: 0
+      z: -2.5999997
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 7.23
+      y: 0
+      z: -3.7699997
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 8.49
+      y: 0
+      z: -2.7599998
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 8.860001
+      y: 0
+      z: -0.8299999
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 5.68
+      y: 0
+      z: -4.13
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 4.44
+      y: 0
+      z: -3.78
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 2.7999997
+      y: 0
+      z: -3.1399999
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 2.62
+      y: 0
+      z: -1.6799998
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 8.73
+      y: 0
+      z: -4.1800003
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 8.41
+      y: 0
+      z: 0.7200002
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 7
+      y: 0
+      z: 0.45000023
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 5.8399997
+      y: 0
+      z: 0.42000014
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 4.48
+      y: 0
+      z: 0.6000002
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 3.2899997
+      y: 0
+      z: 0.64000016
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 5.99
+      y: 0
+      z: -1.2
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 6.9800005
+      y: 0
+      z: -7.49
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: 4.61
+      y: 0
+      z: -7.3
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 3.7500005
+      y: 0
+      z: -6.1800003
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 3.4300003
+      y: 0
+      z: -8.06
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 7.4600005
+      y: 0
+      z: -9.2300005
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 8.719999
+      y: 0
+      z: -8.22
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 9.09
+      y: 0
+      z: -6.29
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 5.9100003
+      y: 0
+      z: -9.59
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 4.6700006
+      y: 0
+      z: -9.24
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 3.0300002
+      y: 0
+      z: -8.6
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 2.8500004
+      y: 0
+      z: -7.1400003
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 8.960001
+      y: 0
+      z: -9.64
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 8.639999
+      y: 0
+      z: -4.74
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 7.2300005
+      y: 0
+      z: -5.01
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 6.07
+      y: 0
+      z: -5.04
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 4.7100005
+      y: 0
+      z: -4.8599997
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 3.5200005
+      y: 0
+      z: -4.8199997
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 6.2200003
+      y: 0
+      z: -6.66
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 0.83000004
+      y: 0
+      z: -7.2299995
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: -1.5400003
+      y: 0
+      z: -7.04
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -2.4
+      y: 0
+      z: -5.92
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -2.7200003
+      y: 0
+      z: -7.8
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 1.3100001
+      y: 0
+      z: -8.97
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 2.5699992
+      y: 0
+      z: -7.96
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: 2.9399998
+      y: 0
+      z: -6.0299997
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -0.24000013
+      y: 0
+      z: -9.33
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -1.4799999
+      y: 0
+      z: -8.98
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -3.1200004
+      y: 0
+      z: -8.34
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -3.3000002
+      y: 0
+      z: -6.88
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 2.81
+      y: 0
+      z: -9.38
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 2.4899993
+      y: 0
+      z: -4.4799995
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: 1.08
+      y: 0
+      z: -4.75
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -0.08000028
+      y: 0
+      z: -4.7799997
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -1.4399999
+      y: 0
+      z: -4.5999994
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -2.6300004
+      y: 0
+      z: -4.5599995
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: 0.069999814
+      y: 0
+      z: -6.3999996
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -5.4799995
+      y: 0
+      z: -6.9800005
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: -7.85
+      y: 0
+      z: -6.79
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -8.709999
+      y: 0
+      z: -5.67
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -9.029999
+      y: 0
+      z: -7.55
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -4.9999995
+      y: 0
+      z: -8.720001
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -3.7400002
+      y: 0
+      z: -7.71
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -3.3699996
+      y: 0
+      z: -5.7800007
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -6.5499997
+      y: 0
+      z: -9.08
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -7.7899995
+      y: 0
+      z: -8.73
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -9.43
+      y: 0
+      z: -8.09
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -9.609999
+      y: 0
+      z: -6.63
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -3.4999995
+      y: 0
+      z: -9.130001
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -3.8200002
+      y: 0
+      z: -4.2300005
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -5.2299995
+      y: 0
+      z: -4.5
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -6.39
+      y: 0
+      z: -4.5300007
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -7.7499995
+      y: 0
+      z: -4.3500004
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -8.940001
+      y: 0
+      z: -4.3100004
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -6.24
+      y: 0
+      z: -6.1500006
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -5.95
+      y: 0
+      z: -1.31
+    Rotation:
+      x: -0
+      y: 130.83943
+      z: -0
+  - Position:
+      x: -8.32
+      y: 0
+      z: -1.1199999
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -9.18
+      y: 0
+      z: -0.000000059604645
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -0.39999998
+      y: 0.038
+      z: -0.34999996
+    Rotation:
+      x: -0
+      y: 180
+      z: -0
+  - Position:
+      x: -9.5
+      y: 0
+      z: -1.8800001
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -5.47
+      y: 0
+      z: -3.0500007
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -4.2100005
+      y: 0
+      z: -2.04
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -3.84
+      y: 0
+      z: -0.11000019
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -7.02
+      y: 0
+      z: -3.4099994
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -8.26
+      y: 0
+      z: -3.059999
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -9.9
+      y: 0
+      z: -2.42
+    Rotation:
+      x: 0
+      y: 233.8701
+      z: 0
+  - Position:
+      x: -10.08
+      y: 0
+      z: -0.96000004
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -3.9699998
+      y: 0
+      z: -3.4600005
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -4.2900004
+      y: 0
+      z: 1.44
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -5.7
+      y: 0
+      z: 1.1700001
+    Rotation:
+      x: -0
+      y: 9.911394
+      z: 0
+  - Position:
+      x: -6.86
+      y: 0
+      z: 1.1399999
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -8.219999
+      y: 0
+      z: 1.3200002
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -9.41
+      y: 0
+      z: 1.3600001
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -6.71
+      y: 0
+      z: -0.48000008
+    Rotation:
+      x: -0
+      y: 110.01468
+      z: 0
+  - Position:
+      x: -6.77
+      y: 0
+      z: -2.1599998
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -5.3
+      y: 0
+      z: -0.26999998
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -6.7200003
+      y: 0
+      z: -7.58
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -4.73
+      y: 0
+      z: -5.9300003
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -7.12
+      y: 0
+      z: -5.67
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 1.77
+      y: 0
+      z: -6.25
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -0.32999998
+      y: 0
+      z: -8.16
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: -0.81999993
+      y: 0
+      z: -5.92
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 7.52
+      y: 0
+      z: -6.5
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 5.1
+      y: 0
+      z: -5.9800005
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0
+  - Position:
+      x: 5.48
+      y: 0
+      z: -8.620001
+    Rotation:
+      x: -0
+      y: 175.27063
+      z: -0

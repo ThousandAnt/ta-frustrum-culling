@@ -372,7 +372,7 @@ Material:
     - _CoatCoverage: 1
     - _CoatIOR: 0.5
     - _CoatMask: 0
-    - _Cull: 2
+    - _Cull: 0
     - _CullMode: 0
     - _CullModeForward: 0
     - _CullModeNormalFlip: 1
