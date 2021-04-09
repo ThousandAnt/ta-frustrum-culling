@@ -11,6 +11,8 @@ namespace ThousandAnt.Render {
 
     public class IndirectRenderer {
 
+        static readonly MaterialPropertyBlock TempBlock = new MaterialPropertyBlock();
+
         ComputeBuffer argsBuffer;
         ComputeBuffer transformBuffer;
 
@@ -25,7 +27,21 @@ namespace ThousandAnt.Render {
         }
 
         public void Draw(int2 span, NativeArray<float4x4> matrices) {
-            throw new System.NotImplementedException();
+            transformBuffer.SetData(matrices, span.x, span.y, span.y - span.x);
+
+            args[1] = (uint)(span.y - span.x);
+            argsBuffer.SetData(args);
+
+            Graphics.DrawMeshInstancedIndirect(
+            mesh,
+            0, 
+            material, 
+            new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
+            argsBuffer,
+            0,
+            TempBlock,
+            UnityEngine.Rendering.ShadowCastingMode.On,
+            true); 
         }
 
         ~IndirectRenderer() {
