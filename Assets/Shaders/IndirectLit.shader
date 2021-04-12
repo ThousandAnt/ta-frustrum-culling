@@ -68,6 +68,12 @@ Shader "Thousand Ant/Simple Lit Indirect"
 
             HLSLPROGRAM
             #pragma target 4.5
+
+            // ----------------------------------------------
+            // Shader Features
+            // ----------------------------------------------
+            #pragma shader_feature_local_fragment _ALPHATEST_ON
+
             #pragma multi_compile_instancing
 
             #pragma vertex IndirectLitPassVertex
@@ -78,4 +84,5 @@ Shader "Thousand Ant/Simple Lit Indirect"
             ENDHLSL
         }
     }
+    CustomEditor "UnityEditor.Rendering.Universal.ShaderGUI.SimpleLitShader"
 }
