@@ -67,6 +67,14 @@ Shader "Thousand Ant/Simple Lit Indirect"
             Cull[_Cull]
 
             HLSLPROGRAM
+            #pragma target 4.5
+            #pragma multi_compile_instancing
+
+            #pragma vertex IndirectLitPassVertex
+            #pragma fragment IndirectLitPassFragment
+
+            #include "Core.hlsl"
+            #include "SimpleIndirectLitForwardPass.hlsl"
             ENDHLSL
         }
     }
