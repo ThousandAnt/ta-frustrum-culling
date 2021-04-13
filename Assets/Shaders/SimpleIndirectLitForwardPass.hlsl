@@ -4,20 +4,20 @@
 #include "SimpleIndirectLitInput.hlsl"
 #include "Helpers.hlsl"
 
-// Interpolators IndirectLitPassVertex(MeshData input, uint instanceID : SV_INSTANCEID)
-Interpolators IndirectLitPassVertex(MeshData input) // TODO: disable this
+Interpolators IndirectLitPassVertex(MeshData input, uint instanceID : SV_INSTANCEID)
+// Interpolators IndirectLitPassVertex(MeshData input) // TODO: disable this
 {
-    // float4x4 ltw = _Matrices[instanceID]; // TODO: Regrab the 
     Interpolators output = (Interpolators)0;
 
     UNITY_SETUP_INSTANCE_ID(input);
     UNITY_TRANSFER_INSTANCE_ID(input, output);
     UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-    float4x4 m = unity_ObjectToWorld;
+    // float4x4 m = unity_ObjectToWorld;
+    float4x4 m = _Matrices[instanceID]; // TODO: Regrab the 
 
     VertexPositionInputs vertexInput = GetVertexPositionInputs(m, input.positionOS.xyz);
-    VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, input.tangentOS);
+    VertexNormalInputs normalInput   = GetVertexNormalInputs(input.normalOS, input.tangentOS);
 
     half3 viewDirWS = GetWorldSpaceViewDir(vertexInput.positionWS);
     half3 vertexLight = VertexLighting(vertexInput.positionWS, normalInput.normalWS);

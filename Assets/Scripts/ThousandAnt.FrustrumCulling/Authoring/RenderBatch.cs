@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ThousandAnt.Authoring {
+namespace ThousandAnt.FrustumCulling.Transforms.Authoring {
     /// <summary>
     /// Transform Handle stores only the position and euler rotation. 
     /// Scale is assumed to be a uniform value.

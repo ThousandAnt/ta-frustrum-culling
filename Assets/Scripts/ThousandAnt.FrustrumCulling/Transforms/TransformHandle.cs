@@ -2,7 +2,7 @@ using System;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace ThousandAnt.Authoring {
+namespace ThousandAnt.FrustumCulling.Transforms {
 
     /// <summary>
     /// Transform Handle stores only the position and euler rotation. 

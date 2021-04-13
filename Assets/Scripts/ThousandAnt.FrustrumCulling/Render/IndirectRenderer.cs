@@ -1,15 +1,16 @@
-using System.Runtime.InteropServices;
+using System;
 using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace ThousandAnt.Render {
+namespace ThousandAnt.FrustumCulling.Render {
 
     public static class ShaderConstants {
         public static readonly int Matrices = Shader.PropertyToID("_Matrices");
     }
 
-    public class IndirectRenderer {
+    public class IndirectRenderer : IDisposable {
 
         static readonly MaterialPropertyBlock TempBlock = new MaterialPropertyBlock();
 
@@ -24,10 +25,12 @@ namespace ThousandAnt.Render {
         public IndirectRenderer(int maxObjects, Material material, Mesh mesh) {
             this.mesh = mesh;
             this.material = material;
+
+            Initialize(maxObjects);
         }
 
         public void Draw(int2 span, NativeArray<float4x4> matrices) {
-            transformBuffer.SetData(matrices, span.x, span.y, span.y - span.x);
+            transformBuffer.SetData(matrices, span.x, span.x, span.y - span.x);
 
             args[1] = (uint)(span.y - span.x);
             argsBuffer.SetData(args);
@@ -44,16 +47,22 @@ namespace ThousandAnt.Render {
             true); 
         }
 
-        ~IndirectRenderer() {
-            argsBuffer.Release();
-            transformBuffer.Release();
+        public void Dispose() {
+            Release(true);
         }
 
-        void InitializeBuffers(int max) {
+        ~IndirectRenderer() {
+            Dispose();
+        }
+
+        void Initialize(int count) {
             Release(false);
 
+            // Create the indirect arguments
+            argsBuffer = new ComputeBuffer(1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
+
             // Create the transform buffer.
-            transformBuffer = new ComputeBuffer(max, stride: Marshal.SizeOf<float4x4>());
+            transformBuffer = new ComputeBuffer(count, UnsafeUtility.SizeOf<float4x4>());
 
             // Set the material's ComputeBuffer
             material.SetBuffer(ShaderConstants.Matrices, transformBuffer);
@@ -62,7 +71,7 @@ namespace ThousandAnt.Render {
             // TODO: Support multiple submeshes
             uint indexCount = mesh != null ? mesh.GetIndexCount(0) : 0;
             args[0] = indexCount;   // The first arg is the # of indices
-            args[1] = (uint)max;    // The second arg is the # of elements we want to render
+            args[1] = (uint)count;    // The second arg is the # of elements we want to render
             argsBuffer.SetData(args);
         }
 
@@ -75,5 +84,6 @@ namespace ThousandAnt.Render {
                 argsBuffer = null;
             }
         }
+
     }
 }

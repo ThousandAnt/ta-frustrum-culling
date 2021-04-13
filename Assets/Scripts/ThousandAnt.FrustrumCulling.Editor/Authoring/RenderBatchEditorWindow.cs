@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using ThousandAnt.Authoring;
+using ThousandAnt.FrustumCulling.Transforms;
+using ThousandAnt.FrustumCulling.Transforms.Authoring;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -67,7 +68,8 @@ namespace ThousandAnt.FrustrumCulling.EditorTools {
             }
 
             if (GUILayout.Button("Save Render Batch")) {
-                var path = EditorUtility.SaveFilePanelInProject("Save Render Batch", "RenderBatch", "asset", "Enter a file name and click save");
+                var path = EditorUtility.SaveFilePanelInProject(
+                    "Save Render Batch", "RenderBatch", "asset", "Enter a file name and click save");
                 if (path.Length > 0) {
                     var renderBatch = ScriptableObject.CreateInstance<RenderBatch>();
                     renderBatch.Material = meshRenderers[0].sharedMaterial;
