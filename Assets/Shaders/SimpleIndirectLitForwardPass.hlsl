@@ -5,7 +5,6 @@
 #include "Helpers.hlsl"
 
 Interpolators IndirectLitPassVertex(MeshData input, uint instanceID : SV_INSTANCEID)
-// Interpolators IndirectLitPassVertex(MeshData input) // TODO: disable this
 {
     Interpolators output = (Interpolators)0;
 
@@ -13,8 +12,7 @@ Interpolators IndirectLitPassVertex(MeshData input, uint instanceID : SV_INSTANC
     UNITY_TRANSFER_INSTANCE_ID(input, output);
     UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-    // float4x4 m = unity_ObjectToWorld;
-    float4x4 m = _Matrices[instanceID]; // TODO: Regrab the 
+    float4x4 m = _Matrices[instanceID];
 
     VertexPositionInputs vertexInput = GetVertexPositionInputs(m, input.positionOS.xyz);
     VertexNormalInputs normalInput   = GetVertexNormalInputs(input.normalOS, input.tangentOS);

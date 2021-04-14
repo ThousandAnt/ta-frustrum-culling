@@ -14,6 +14,8 @@ namespace ThousandAnt.FrustumCulling.Render {
 
         static readonly MaterialPropertyBlock TempBlock = new MaterialPropertyBlock();
 
+        public float3 Extents => mesh.bounds.size / 2;
+
         ComputeBuffer argsBuffer;
         ComputeBuffer transformBuffer;
 
