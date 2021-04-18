@@ -31,8 +31,36 @@ namespace ThousandAnt.FrustumCulling.Render {
             Initialize(maxObjects);
         }
 
+        public NativeArray<float4x4> BeginDraw(int count) {
+            return transformBuffer.BeginWrite<float4x4>(0, count);
+        }
+
+        public void EndDraw(int2 span) {
+            transformBuffer.EndWrite<float4x4>(span.y - span.x);
+
+            args[1] = (uint)(span.y - span.x);
+            argsBuffer.SetData(args);
+
+            Graphics.DrawMeshInstancedIndirect(
+            mesh,
+            0, 
+            material, 
+            new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
+            argsBuffer,
+            0,
+            TempBlock,
+            UnityEngine.Rendering.ShadowCastingMode.On,
+            true); 
+        }
+
         public void Draw(int2 span, NativeArray<float4x4> matrices) {
-            transformBuffer.SetData(matrices, span.x, span.x, span.y - span.x);
+            var data = transformBuffer.BeginWrite<float4x4>(span.x, span.y - span.x);
+
+            unsafe {
+                UnsafeUtility.MemCpy(data.GetUnsafePtr(), matrices.GetUnsafePtr(), matrices.Length * UnsafeUtility.SizeOf<float4x4>());
+            }
+
+            transformBuffer.EndWrite<float4x4>(matrices.Length);
 
             args[1] = (uint)(span.y - span.x);
             argsBuffer.SetData(args);
@@ -64,7 +92,7 @@ namespace ThousandAnt.FrustumCulling.Render {
             argsBuffer = new ComputeBuffer(1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
 
             // Create the transform buffer.
-            transformBuffer = new ComputeBuffer(count, UnsafeUtility.SizeOf<float4x4>());
+            transformBuffer = new ComputeBuffer(count, UnsafeUtility.SizeOf<float4x4>(), ComputeBufferType.Structured, ComputeBufferMode.SubUpdates);
 
             // Set the material's ComputeBuffer
             material.SetBuffer(ShaderConstants.Matrices, transformBuffer);

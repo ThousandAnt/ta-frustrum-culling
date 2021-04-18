@@ -66,8 +66,15 @@ namespace ThousandAnt.FrustumCulling.Render {
         void Update() {
             handle.Complete();
 
+            // TODO: Ehh this is bad, I need a flag so I can properly end the write and not begin a new write
+            if (filteredIndices.Length > 0) {
+                indirectRenderer.EndDraw(new int2(0, filteredIndices.Length));
+            }
+
+            var contents = indirectRenderer.BeginDraw(matrices.Length);
+
             // Draw the content within view
-            indirectRenderer.Draw(new int2(0, filteredMatrices.Length), filteredMatrices.AsArray());
+            // indirectRenderer.Draw(new int2(0, filteredMatrices.Length), filteredMatrices.AsArray());
 
             // Reset the filters so we can reuse these buffers
             filteredIndices.Clear();
@@ -86,10 +93,10 @@ namespace ThousandAnt.FrustumCulling.Render {
                 Matrices = matrices
             }.ScheduleAppend(filteredIndices, matrices.Length, 32, handle);
 
-            handle = new PopulateFilteredMatricesJob {
-                Dst             = filteredMatrices,
+            handle = new WriteToGpuBufferJob {
+                Dst = contents,
                 FilteredIndices = filteredIndices,
-                Src             = matrices
+                Src = matrices
             }.Schedule(handle);
         }
     }

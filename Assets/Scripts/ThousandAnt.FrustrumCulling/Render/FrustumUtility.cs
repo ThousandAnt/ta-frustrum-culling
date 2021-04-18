@@ -51,9 +51,30 @@ namespace ThousandAnt.FrustumCulling.Render {
     }
 
     [BurstCompile]
+    public unsafe struct WriteToGpuBufferJob : IJob {
+
+        [WriteOnly]
+        public NativeArray<float4x4> Dst;
+
+        [ReadOnly]
+        public NativeList<int> FilteredIndices;
+
+        [ReadOnly]
+        public NativeArray<float4x4> Src;
+
+        public void Execute() {
+            for (int i = 0; i < FilteredIndices.Length; i++) {
+                var idx = FilteredIndices[i];
+                Dst[i] = Src[idx];
+            }
+        }
+    }
+
+    [BurstCompile]
     public unsafe struct ViewFrustumCullingFilterJob : IJobParallelForFilter {
 
         [ReadOnly]
+        [DeallocateOnJobCompletion]
         public NativeArray<float4> Planes;
 
         [ReadOnly]
