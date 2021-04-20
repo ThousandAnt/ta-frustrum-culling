@@ -101,7 +101,7 @@ namespace ThousandAnt.FrustumCulling.Render {
             // TODO: Support multiple submeshes
             uint indexCount = mesh != null ? mesh.GetIndexCount(0) : 0;
             args[0] = indexCount;   // The first arg is the # of indices
-            args[1] = (uint)count;    // The second arg is the # of elements we want to render
+            args[1] = (uint)count;  // The second arg is the # of elements we want to render
             argsBuffer.SetData(args);
         }
 
