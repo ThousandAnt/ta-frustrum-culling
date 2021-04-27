@@ -242,8 +242,10 @@ QualitySettings:
     - Windows Store Apps
     - Standalone
   m_PerPlatformDefaultQuality:
+    Android: 0
     PS4: 1
     Standalone: 0
+    WebGL: 0
     Windows Store Apps: 1
     XboxOne: 4
     iPhone: 1
