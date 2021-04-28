@@ -1,6 +1,8 @@
 #ifndef THOUSAND_ANT_SIMPLE_INDIRECT_INPUT
 #define THOUSAND_ANT_SIMPLE_INDIRECT_INPUT
 
+#include "IndirectInput.hlsl"
+
 CBUFFER_START(UnityPerMaterial)
     float4 _BaseMap_ST;
     half4 _BaseColor;
@@ -46,7 +48,7 @@ struct Interpolators
     float4 shadowCoord             : TEXCOORD7;
 #endif
 
-    float4 positionCS                  : SV_POSITION;
+    float4 positionCS              : SV_POSITION;
 };
 
 // ---------------------------------------------------------
@@ -54,10 +56,6 @@ struct Interpolators
 // ---------------------------------------------------------
 TEXTURE2D(_SpecGlossMap);   SAMPLER(sampler_SpecGlossMap);
 
-// ---------------------------------------------------------
-// Structured Arguments 
-// ---------------------------------------------------------
-StructuredBuffer<float4x4> _Matrices;   // This will store the LocalToWorld Matrix
 
 half4 SampleSpecularSmoothness(half2 uv, half alpha, half4 specColor, TEXTURE2D_PARAM(specMap, sampler_specMap))
 {

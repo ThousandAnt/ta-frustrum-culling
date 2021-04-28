@@ -65,16 +65,18 @@ namespace ThousandAnt.FrustumCulling.Render {
             args[1] = (uint)(span.y - span.x);
             argsBuffer.SetData(args);
 
+            // TODO: Support submeshes
             Graphics.DrawMeshInstancedIndirect(
-            mesh,
-            0, 
-            material, 
-            new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
-            argsBuffer,
-            0,
-            TempBlock,
-            UnityEngine.Rendering.ShadowCastingMode.On,
-            true); 
+                mesh,
+                0, 
+                material, 
+                new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
+                argsBuffer,
+                0,
+                TempBlock,
+                UnityEngine.Rendering.ShadowCastingMode.On,
+                true,
+                -1);
         }
 
         public void Dispose() {
