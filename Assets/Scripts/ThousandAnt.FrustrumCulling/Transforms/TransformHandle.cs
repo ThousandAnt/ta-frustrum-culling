@@ -12,15 +12,17 @@ namespace ThousandAnt.FrustumCulling.Transforms {
     public struct TransformHandle {
         public float3 Position;
         public float3 Rotation;
+        public float3 Scale;
 
         public float4x4 AsMatrix() {
-            return float4x4.TRS(Position, quaternion.EulerXYZ(Rotation), new float3(1));
+            return float4x4.TRS(Position, quaternion.EulerXYZ(Rotation), Scale);
         }
 
         public static implicit operator TransformHandle(Transform transform) {
             return new TransformHandle {
                 Position = transform.position,
-                Rotation = transform.eulerAngles
+                Rotation = transform.eulerAngles,
+                Scale    = transform.lossyScale
             };
         }
     }

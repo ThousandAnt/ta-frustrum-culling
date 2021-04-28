@@ -29,6 +29,7 @@ namespace ThousandAnt.FrustumCulling.Render {
 
         IndirectRenderer indirectRenderer;
         JobHandle handle;
+        bool beganDraw;
 
         void OnEnable() {
             Assert.IsNotNull(batch, "A RenderBatch must exist...");
@@ -41,6 +42,8 @@ namespace ThousandAnt.FrustumCulling.Render {
             // Matrices.Length is the absolute worse case for allocation, so we preallocate to that size
             filteredIndices = new NativeList<int>(matrices.Length, Allocator.Persistent);
             filteredMatrices = new NativeList<float4x4>(matrices.Length, Allocator.Persistent);
+
+            Debug.Log(handle.IsCompleted);
         }
 
         void OnDisable() {
@@ -67,14 +70,13 @@ namespace ThousandAnt.FrustumCulling.Render {
             handle.Complete();
 
             // TODO: Ehh this is bad, I need a flag so I can properly end the write and not begin a new write
-            if (filteredIndices.Length > 0) {
+            if (beganDraw) {
                 indirectRenderer.EndDraw(new int2(0, filteredIndices.Length));
+                beganDraw = false;
             }
 
+            beganDraw = true;
             var contents = indirectRenderer.BeginDraw(matrices.Length);
-
-            // Draw the content within view
-            // indirectRenderer.Draw(new int2(0, filteredMatrices.Length), filteredMatrices.AsArray());
 
             // Reset the filters so we can reuse these buffers
             filteredIndices.Clear();

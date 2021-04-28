@@ -13,7 +13,7 @@ namespace ThousandAnt.FrustumCulling.Transforms {
 
             for (int i = 0; i < handles.Length; i++) {
                 var handle = handles[i];
-                array[i] = float4x4.TRS(handle.Position, quaternion.Euler(handle.Rotation), new float3(1));
+                array[i] = float4x4.TRS(handle.Position, quaternion.Euler(handle.Rotation), handle.Scale);
             }
 
             return array;
