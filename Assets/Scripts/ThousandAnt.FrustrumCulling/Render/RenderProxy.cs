@@ -42,8 +42,6 @@ namespace ThousandAnt.FrustumCulling.Render {
             // Matrices.Length is the absolute worse case for allocation, so we preallocate to that size
             filteredIndices = new NativeList<int>(matrices.Length, Allocator.Persistent);
             filteredMatrices = new NativeList<float4x4>(matrices.Length, Allocator.Persistent);
-
-            Debug.Log(handle.IsCompleted);
         }
 
         void OnDisable() {
