@@ -38,19 +38,26 @@ namespace ThousandAnt.FrustumCulling.Render {
         public void EndDraw(int2 span) {
             transformBuffer.EndWrite<float4x4>(span.y - span.x);
 
-            args[1] = (uint)(span.y - span.x);
-            argsBuffer.SetData(args);
+            for (int i = 0; i < mesh.subMeshCount; i++) {
+                // Set up the arguments
+                args[0] = (uint)mesh.GetIndexCount(i);
+                args[1] = (uint)(span.y - span.x);
+                args[2] = (uint)mesh.GetIndexStart(i);
+                args[3] = (uint)mesh.GetBaseVertex(i);
 
-            Graphics.DrawMeshInstancedIndirect(
-            mesh,
-            0, 
-            material, 
-            new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
-            argsBuffer,
-            0,
-            TempBlock,
-            UnityEngine.Rendering.ShadowCastingMode.On,
-            true); 
+                argsBuffer.SetData(args);
+
+                Graphics.DrawMeshInstancedIndirect(
+                    mesh,
+                    0, 
+                    material, 
+                    new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
+                    argsBuffer,
+                    0,
+                    TempBlock,
+                    UnityEngine.Rendering.ShadowCastingMode.On,
+                    true); 
+            }
         }
 
         public void Draw(int2 span, NativeArray<float4x4> matrices) {
