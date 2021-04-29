@@ -34,7 +34,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Meadow_Grass_01_Low_BakedWind
-  m_Shader: {fileID: 4800000, guid: a2f08b133bc2b0144b78c827e63e427f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0ebddfcd1a4dd1443acdf0b33e474631, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1

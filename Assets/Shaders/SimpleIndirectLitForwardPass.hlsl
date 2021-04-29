@@ -1,9 +1,6 @@
 #ifndef THOUSAND_ANT_SIMPLE_LIT_PASS
 #define THOUSAND_ANT_SIMPLE_LIT_PASS
 
-#define _ADDITIONAL
-
-#include "SimpleIndirectLitInput.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 #include "Helpers.hlsl"
@@ -84,7 +81,7 @@ float4 IndirectLitPassFragment(Interpolators input) : SV_TARGET
     half4 diffuseAlpha = SampleAlbedoAlpha(uv, TEXTURE2D_ARGS(_BaseMap, sampler_BaseMap));
     float3 diffuse = diffuseAlpha.rgb * _BaseColor.rgb;
 
-    float alpha = diffuseAlpha.a * _BaseColor.rgb;
+    float alpha = diffuseAlpha.a * _BaseColor.a;
     AlphaDiscard(alpha, _Cutoff);
 
     half3 normalTS = SampleNormal(uv, TEXTURE2D_ARGS(_BaseMap, sampler_BaseMap));

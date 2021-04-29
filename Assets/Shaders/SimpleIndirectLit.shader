@@ -47,7 +47,8 @@ Shader "Thousand Ant/Simple Lit Indirect"
     SubShader
     {
         Tags
-        { "RenderType" = "Opaque"
+        {   
+            "RenderType" = "Opaque"
             "RenderPipeline" = "UniversalPipeline"
             "UniversalMaterialType" = "SimpleLit"
             "ShaderModel" = "4.5"
@@ -88,6 +89,8 @@ Shader "Thousand Ant/Simple Lit Indirect"
             #pragma fragment IndirectLitPassFragment
 
             #include "Core.hlsl"
+            #include "IndirectInput.hlsl"
+            #include "SimpleLitInput.hlsl"
             #include "SimpleIndirectLitForwardPass.hlsl"
             ENDHLSL
         }
@@ -96,7 +99,7 @@ Shader "Thousand Ant/Simple Lit Indirect"
         {
 
             Name "ShadowCaster Indirect"
-            Tags{"LightMode" = "ShadowCaster"}
+            Tags { "LightMode" = "ShadowCaster" }
 
             ZWrite On
             ZTest LEqual
@@ -127,8 +130,8 @@ Shader "Thousand Ant/Simple Lit Indirect"
             #pragma fragment ShadowPassFragment
 
             #include "IndirectInput.hlsl"
+
             #include "Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitInput.hlsl"
-            // #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
             #include "ShadowCasterPass.hlsl"
             ENDHLSL
         }
