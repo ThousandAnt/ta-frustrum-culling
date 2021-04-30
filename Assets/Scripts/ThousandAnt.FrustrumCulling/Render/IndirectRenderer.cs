@@ -47,7 +47,7 @@ namespace ThousandAnt.FrustumCulling.Render {
             for (int i = 0; i < mesh.subMeshCount; i++) {
                 // Set up the arguments
                 args[i][0] = (uint)mesh.GetIndexCount(i);
-                args[i][1] = (uint)(span.y - span.x);
+                args[i][1] = (uint)(span.y - span.x);                           // Argument 1 is the total # of elements we want to render (we subtract the span)
                 args[i][2] = (uint)mesh.GetIndexStart(i);
                 args[i][3] = (uint)mesh.GetBaseVertex(i);
 
@@ -57,7 +57,7 @@ namespace ThousandAnt.FrustumCulling.Render {
                     mesh,                                                       // The mesh we should draw
                     i,                                                          // The submesh index we need to draw
                     materials[i],                                               // The material that needs to be used to render the elements
-                    new Bounds(Vector3.zero, new Vector3(500, 500, 500)),       // The area  in which the element can appear in
+                    new Bounds(Vector3.zero, new Vector3(500, 500, 500)),       // The area in which the element can appear in
                     argsBuffers[i],                                             // The indirect arguments which describes how many we are drawing
                     0,                                                          // The layer we should draw to
                     TempBlock,                                                  // Empty material block
