@@ -28,4 +28,9 @@ float3 TransformObjectToWorldNormal(float4x4 m, float3 normalWS, bool doNormaliz
     return normalOS;
 }
 
+float4 TransformObjectToHClip(float4x4 ltw, float3 positionOS) 
+{
+    return mul(GetWorldToHClipMatrix(), mul(ltw, float4(positionOS, 1.0)));
+}
+
 #endif

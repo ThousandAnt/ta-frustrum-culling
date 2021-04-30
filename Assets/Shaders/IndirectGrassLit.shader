@@ -130,10 +130,6 @@ Shader "Thousand Ant/Simple Lit Grass Indirect"
             //--------------------------------------
             // GPU Instancing
             #pragma multi_compile_instancing
-            #pragma multi_compile _ DOTS_INSTANCING_ON
-
-            // -------------------------------------
-            // Universal Pipeline keywords
 
             // This is used during shadow map generation to differentiate between directional and punctual light shadows, as they use different formulas to apply Normal Bias
             #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
@@ -141,8 +137,9 @@ Shader "Thousand Ant/Simple Lit Grass Indirect"
             #pragma vertex ShadowPassVertex
             #pragma fragment ShadowPassFragment
 
+            #include "Core.hlsl"
             #include "IndirectInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitInput.hlsl"
+            #include "SimpleLitInput.hlsl"
             #include "ShadowCasterPass.hlsl"
             ENDHLSL
         }

@@ -65,8 +65,6 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
 
         void Update() {
-            // indirectRenderer.Draw(new int2(0, matrices.Length), matrices);
-
             handle.Complete();
 
             if (beganDraw) {

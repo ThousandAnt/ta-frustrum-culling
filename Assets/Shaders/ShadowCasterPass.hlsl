@@ -4,6 +4,7 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
 #include "Transforms.hlsl"
+#include "IndirectInput.hlsl"
 
 float3 _LightDirection;
 float3 _LightPosition;
@@ -23,7 +24,6 @@ struct Interpolators
 
 float4 GetShadowPositionHClip(MeshData input, float4x4 m)
 {
-
     float3 positionWS = TransformObjectToWorld(m, input.positionOS.xyz);
     float3 normalWS = TransformObjectToWorldNormal(m, input.normalOS);
 
