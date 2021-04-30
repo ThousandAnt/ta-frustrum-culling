@@ -17,13 +17,12 @@ Shader "Thousand Ant/Simple Lit Grass Indirect"
         // Vertex Animation Settings
         // -----------------------------------------------------------
         _WorldSize("World Size", Vector) = (1, 1, 1, 1)
-        _WindMap("Wind Map", 2D) = "white" { }
+        _NoiseMap("Noise Map", 2D) = "white" { }
+        _WindSpeed("Wind Speed", Vector) = (1, 1, 1, 1)
 
-        // _RampTex("Ramp Map", 2D) = "white" { }
-        // _WaveSpeed("Wave Speed", Float) = 1.0
-        // _WaveAmp("Wave Amplitude", Float) = 1.0
-        // _HeightFactor("Height Factor", Float) = 1.0
-        // _HeightCutoff("Height Cutoff", float) = 1.0
+        _WaveSpeed("Wave Speed", Float) = 1.0
+
+        _HeightCutoff("Height Cutoff", float) = 1.0
 
         [HideInInspector] _BumpScale ("Scale", Float) = 1.0
         [NoScaleOffset] _BumpMap ("Normal Map", 2D) = "bump" { }
@@ -104,7 +103,7 @@ Shader "Thousand Ant/Simple Lit Grass Indirect"
             #include "IndirectInput.hlsl"
             #include "GrassInput.hlsl"
             #include "Specular.hlsl"
-            #include "SimpleIndirectLitForwardPass.hlsl"
+            #include "GrassLitForwardPass.hlsl"
 
             ENDHLSL
         }

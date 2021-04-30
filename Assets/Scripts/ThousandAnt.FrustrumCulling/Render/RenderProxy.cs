@@ -34,7 +34,7 @@ namespace ThousandAnt.FrustumCulling.Render {
         void OnEnable() {
             Assert.IsNotNull(batch, "A RenderBatch must exist...");
 
-            indirectRenderer = new IndirectRenderer(batch.Transforms.Length, batch.Material, batch.Mesh);
+            indirectRenderer = new IndirectRenderer(batch.Transforms.Length, batch.Materials, batch.Mesh);
 
             // Generate the matrices
             matrices = batch.Transforms.ToMatrixArray(Allocator.Persistent);
@@ -65,39 +65,42 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
 
         void Update() {
+            // indirectRenderer.Draw(new int2(0, matrices.Length), matrices);
+
             handle.Complete();
 
-            // TODO: Ehh this is bad, I need a flag so I can properly end the write and not begin a new write
             if (beganDraw) {
                 indirectRenderer.EndDraw(new int2(0, filteredIndices.Length));
                 beganDraw = false;
             }
 
-            beganDraw = true;
-            var contents = indirectRenderer.BeginDraw(matrices.Length);
+            if (!beganDraw) {
+                beganDraw = true;
+                var contents = indirectRenderer.BeginDraw(matrices.Length);
 
-            // Reset the filters so we can reuse these buffers
-            filteredIndices.Clear();
-            filteredMatrices.Clear();
+                // Reset the filters so we can reuse these buffers
+                filteredIndices.Clear();
+                filteredMatrices.Clear();
 
-            var planes = new NativeArray<float4>(6, Allocator.TempJob);
+                var planes = new NativeArray<float4>(6, Allocator.TempJob);
 
-            handle = new EmbedExtentsJob {
-                Src     = FrustumUtils.GetPlanesArray(),
-                Extents = indirectRenderer.Extents,
-                Dst     = planes
-            }.Schedule();
+                handle = new EmbedExtentsJob {
+                    Src     = FrustumUtils.GetPlanesArray(),
+                    Extents = indirectRenderer.Extents,
+                    Dst     = planes
+                }.Schedule();
 
-            handle = new ViewFrustumCullingFilterJob {
-                Planes   = planes,
-                Matrices = matrices
-            }.ScheduleAppend(filteredIndices, matrices.Length, 32, handle);
+                handle = new ViewFrustumCullingFilterJob {
+                    Planes   = planes,
+                    Matrices = matrices
+                }.ScheduleAppend(filteredIndices, matrices.Length, 32, handle);
 
-            handle = new WriteToGpuBufferJob {
-                Dst = contents,
-                FilteredIndices = filteredIndices,
-                Src = matrices
-            }.Schedule(handle);
+                handle = new WriteToGpuBufferJob {
+                    Dst = contents,
+                    FilteredIndices = filteredIndices,
+                    Src = matrices
+                }.Schedule(handle);
+            }
         }
     }
 }

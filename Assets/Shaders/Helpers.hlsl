@@ -8,7 +8,6 @@ VertexPositionInputs GetVertexPositionInputs(float4x4 m, float3 positionOS)
 {
     VertexPositionInputs inputs;
 
-    //  TODO: Implement the Transform functions
     inputs.positionWS = TransformObjectToWorld(m, positionOS);
     inputs.positionVS = TransformWorldToView(inputs.positionWS);
     inputs.positionCS = TransformWorldToHClip(inputs.positionWS);

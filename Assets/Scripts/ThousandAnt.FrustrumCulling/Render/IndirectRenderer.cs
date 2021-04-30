@@ -16,17 +16,23 @@ namespace ThousandAnt.FrustumCulling.Render {
 
         public float3 Extents => mesh.bounds.size / 2;
 
-        ComputeBuffer argsBuffer;
+        ComputeBuffer[] argsBuffers;
         ComputeBuffer transformBuffer;
 
         readonly Mesh mesh;
-        readonly Material material;
+        readonly Material[] materials;
 
-        readonly uint[] args = { 0, 0, 0, 0, 0 };
+        readonly uint[][] args;
 
-        public IndirectRenderer(int maxObjects, Material material, Mesh mesh) {
+        public IndirectRenderer(int maxObjects, Material[] materials, Mesh mesh) {
             this.mesh = mesh;
-            this.material = material;
+            this.materials = materials;
+
+            args = new uint[mesh.subMeshCount][];
+
+            for (int i = 0; i < args.Length; i++) {
+                args[i] = new uint[5];
+            }
 
             Initialize(maxObjects);
         }
@@ -40,19 +46,19 @@ namespace ThousandAnt.FrustumCulling.Render {
 
             for (int i = 0; i < mesh.subMeshCount; i++) {
                 // Set up the arguments
-                args[0] = (uint)mesh.GetIndexCount(i);
-                args[1] = (uint)(span.y - span.x);
-                args[2] = (uint)mesh.GetIndexStart(i);
-                args[3] = (uint)mesh.GetBaseVertex(i);
+                args[i][0] = (uint)mesh.GetIndexCount(i);
+                args[i][1] = (uint)(span.y - span.x);
+                args[i][2] = (uint)mesh.GetIndexStart(i);
+                args[i][3] = (uint)mesh.GetBaseVertex(i);
 
-                argsBuffer.SetData(args);
+                argsBuffers[i].SetData(args[i]);
 
                 Graphics.DrawMeshInstancedIndirect(
                     mesh,
-                    0, 
-                    material, 
+                    i, 
+                    materials[i], 
                     new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
-                    argsBuffer,
+                    argsBuffers[i],
                     0,
                     TempBlock,
                     UnityEngine.Rendering.ShadowCastingMode.On,
@@ -69,21 +75,29 @@ namespace ThousandAnt.FrustumCulling.Render {
 
             transformBuffer.EndWrite<float4x4>(matrices.Length);
 
-            args[1] = (uint)(span.y - span.x);
-            argsBuffer.SetData(args);
+            var length = span.y - span.x;
 
-            // TODO: Support submeshes
-            Graphics.DrawMeshInstancedIndirect(
-                mesh,
-                0, 
-                material, 
-                new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
-                argsBuffer,
-                0,
-                TempBlock,
-                UnityEngine.Rendering.ShadowCastingMode.On,
-                true,
-                -1);
+            for (int i = 0; i < mesh.subMeshCount; i++) {
+                args[i][0] = (uint)mesh.GetIndexCount(i);
+                args[i][1] = (uint)length;
+                args[i][2] = (uint)mesh.GetIndexStart(i);
+                args[i][3] = (uint)mesh.GetBaseVertex(i);
+
+                argsBuffers[i].SetData(args[i]);
+                // Debug.Log($"{i}: {materials[i]} {mesh} {mesh.GetSubMesh(i).vertexCount}, Args: {args[0]} {args[1]}, {args[2]}, {args[3]}, SUBMESH: {mesh.GetSubMesh(i).indexCount}, {mesh.GetSubMesh(i).indexStart} {mesh.GetSubMesh(i).baseVertex}, Actual Mesh: {mesh.GetIndexCount(i)}");
+
+                // TODO: Support submeshes
+                Graphics.DrawMeshInstancedIndirect(
+                    mesh,
+                    i, 
+                    materials[i], 
+                    new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
+                    argsBuffers[i],
+                    0,
+                    TempBlock,
+                    UnityEngine.Rendering.ShadowCastingMode.On,
+                    true);
+            }
         }
 
         public void Dispose() {
@@ -97,21 +111,27 @@ namespace ThousandAnt.FrustumCulling.Render {
         void Initialize(int count) {
             Release(false);
 
-            // Create the indirect arguments
-            argsBuffer = new ComputeBuffer(1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
+            argsBuffers = new ComputeBuffer[count];
+
+            for (int i = 0; i < count; i++) {
+                // Create the indirect arguments
+                argsBuffers[i] = new ComputeBuffer(1, 5 * sizeof(uint), ComputeBufferType.IndirectArguments);
+            }
 
             // Create the transform buffer.
             transformBuffer = new ComputeBuffer(count, UnsafeUtility.SizeOf<float4x4>(), ComputeBufferType.Structured, ComputeBufferMode.SubUpdates);
 
-            // Set the material's ComputeBuffer
-            material.SetBuffer(ShaderConstants.Matrices, transformBuffer);
+            for (int i = 0; i < materials.Length; i++) {
+                // Set the material's ComputeBuffer
+                materials[i].SetBuffer(ShaderConstants.Matrices, transformBuffer);
+            }
 
             // Update the argument buffer
             // TODO: Support multiple submeshes
-            uint indexCount = mesh != null ? mesh.GetIndexCount(0) : 0;
-            args[0] = indexCount;   // The first arg is the # of indices
-            args[1] = (uint)count;  // The second arg is the # of elements we want to render
-            argsBuffer.SetData(args);
+            // uint indexCount = mesh != null ? mesh.GetIndexCount(0) : 0;
+            // args[0] = indexCount;   // The first arg is the # of indices
+            // args[1] = (uint)count;  // The second arg is the # of elements we want to render
+            // argsBuffers.SetData(args);
         }
 
         void Release(bool releaseArgs) {
@@ -119,10 +139,11 @@ namespace ThousandAnt.FrustumCulling.Render {
             transformBuffer = null;
         
             if (releaseArgs) {
-                argsBuffer?.Release();
-                argsBuffer = null;
+                for (int i = 0; i < argsBuffers.Length; i++) {
+                    argsBuffers[i]?.Release();
+                }
+                argsBuffers = null;
             }
         }
-
     }
 }

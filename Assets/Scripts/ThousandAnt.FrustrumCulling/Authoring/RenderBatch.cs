@@ -8,7 +8,7 @@ namespace ThousandAnt.FrustumCulling.Transforms.Authoring {
     [CreateAssetMenu(menuName = "Thousand Ant/RenderBatch", fileName = "RenderBatch")]
     public class RenderBatch : ScriptableObject {
 
-        public Material Material;
+        public Material[] Materials;
         public Mesh Mesh;
 
         public TransformHandle[] Transforms;

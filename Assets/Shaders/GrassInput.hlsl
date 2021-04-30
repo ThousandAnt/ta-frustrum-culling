@@ -11,6 +11,9 @@ CBUFFER_START(UnityPerMaterial)
     half _Cutoff;
     half _Surface;
     half4 _WorldSize;
+    half4 _WindSpeed;
+    half _WaveSpeed;
+    half _HeightCutoff;
 CBUFFER_END
 
 // ---------------------------------------------------------
@@ -50,11 +53,12 @@ struct Interpolators
 #endif
 
     float4 positionCS              : SV_POSITION;
+    float2 sampledPos              : TEXCOORD8;
 };
 
 // ---------------------------------------------------------
 // Grass Maps
 // ---------------------------------------------------------
-TEXTURE2D(_WindMap);        SAMPLER(sampler_WindMap);
+TEXTURE2D(_NoiseMap);        SAMPLER(sampler_NoiseMap);
 
 #endif

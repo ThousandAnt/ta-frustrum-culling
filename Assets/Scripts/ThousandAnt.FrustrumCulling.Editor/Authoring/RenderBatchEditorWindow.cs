@@ -18,7 +18,7 @@ namespace ThousandAnt.FrustrumCulling.EditorTools {
 
         Transform parent;
         Mesh previewMesh;
-        Material previewMat;
+        Material[] previewMats;
         List<TransformHandle> collection;
 
         void OnEnable() {
@@ -37,13 +37,31 @@ namespace ThousandAnt.FrustrumCulling.EditorTools {
                 var filter = parent.GetComponentInChildren<MeshFilter>();
                 var renderer = parent.GetComponentInChildren<MeshRenderer>();
 
-                previewMat = renderer.sharedMaterial;
-                previewMesh = filter.sharedMesh;
+                if (renderer != null && filter != null) {
+                    if (renderer.sharedMaterials == null) {
+                        previewMats = new Material[1] { renderer.sharedMaterial };
+                    } else {
+                        previewMats = new Material[renderer.sharedMaterials.Length];
+
+                        for (int i = 0; i < previewMats.Length; i++) {
+                            previewMats[i] = renderer.sharedMaterials[i];
+                        }
+                    }
+                    previewMesh = filter.sharedMesh;
+                }
             }
 
             EditorGUI.indentLevel += 2;
             previewMesh = (Mesh)EditorGUILayout.ObjectField("Preview Mesh", previewMesh, typeof(Mesh), true);
-            previewMat = (Material)EditorGUILayout.ObjectField("Preview Mat", previewMat, typeof(Material), true);
+
+            // Debug.Log(previewMats == null);
+
+            if (previewMats != null) {
+                for (int i = 0; i < previewMats.Length; i++) {
+                    previewMats[i] = (Material)EditorGUILayout.ObjectField($"Preview Mat {i + 1}", previewMats[i], typeof(Material), true);
+                }
+            }
+
             EditorGUI.indentLevel -= 2;
             GUI.enabled = true;
         }
@@ -72,7 +90,17 @@ namespace ThousandAnt.FrustrumCulling.EditorTools {
                     "Save Render Batch", "RenderBatch", "asset", "Enter a file name and click save");
                 if (path.Length > 0) {
                     var renderBatch = ScriptableObject.CreateInstance<RenderBatch>();
-                    renderBatch.Material = meshRenderers[0].sharedMaterial;
+
+                    if (meshRenderers[0].sharedMaterials != null) {
+                        renderBatch.Materials = new Material[meshRenderers[0].sharedMaterials.Length];
+
+                        for (int i = 0; i < meshRenderers[0].sharedMaterials.Length; i++) {
+                            renderBatch.Materials[i] = meshRenderers[0].sharedMaterials[i];
+                        }
+                    } else {
+                        renderBatch.Materials = new Material[] { meshRenderers[0].sharedMaterial };
+                    }
+
                     renderBatch.Mesh = meshFilters[0].sharedMesh;
                     renderBatch.Transforms = collection.ToArray();
                     AssetDatabase.CreateAsset(renderBatch, path);
