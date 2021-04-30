@@ -350,7 +350,7 @@ Material:
     - _CullMode: 0
     - _CullModeForward: 0
     - _CullModeNormalFlip: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0.025
     - _DebugTreeOcclusion: 0
     - _DepthOffset: 0
     - _DepthOffsetEnable: 0

@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 11
+--- !u!114 &-4465046154105142183
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 4
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -21,13 +34,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Plant_Perennials_a_BakedWind
-  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _DISABLE_SSR_TRANSPARENT _DOUBLESIDED_ON _MASKMAP
-    _MATERIAL_FEATURE_TRANSMISSION _NORMALMAP _NORMALMAP_TANGENT_SPACE _THICKNESSMAP
-  m_LightmapFlags: 1
+  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
+  m_ShaderKeywords: _ALPHATEST_ON _NORMALMAP
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2475
+  m_CustomRenderQueue: 2450
   stringTagMap:
     RenderType: TransparentCutout
   disabledShaderPasses:
@@ -55,6 +67,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BaseColorMapT2DA:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 10eae601ad8cf86408e5fa096627c5bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -332,6 +348,7 @@ Material:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
+    - _AlphaClip: 1
     - _AlphaCutoff: 0.274
     - _AlphaCutoffEnable: 1
     - _AlphaCutoffPostpass: 0.5
@@ -347,11 +364,13 @@ Material:
     - _BaseMapEncoding: 0
     - _BillboardMode: 0
     - _BillboardShadowMode: 0
+    - _Blend: 0
     - _BlendMode: 0
     - _BumpScale: 1
     - _CoatCoverage: 1
     - _CoatIOR: 0.5
     - _CoatMask: 0
+    - _Cull: 2
     - _CullMode: 0
     - _CullModeForward: 0
     - _CullModeNormalFlip: 1
@@ -407,6 +426,7 @@ Material:
     - _FullDetailNormalBlendWidth: 0.05
     - _GlossMapScale: 0.618
     - _Glossiness: 0.243
+    - _GlossinessSource: 0
     - _GlossyReflections: 1
     - _HdrpVersion: 1
     - _HeightAmplitude: 0.01
@@ -445,7 +465,9 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
     - _PreRefractionPass: 0
+    - _QueueOffset: 0
     - _RayTracing: 0
+    - _ReceiveShadows: 1
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionMode: 0
@@ -453,13 +475,16 @@ Material:
     - _RefractionSSRayModel: 0
     - _SSRefractionProjectionModel: 0
     - _SSSAndTransmissionType: 2
+    - _Shininess: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
     - _Smoothness: 0.515
     - _SmoothnessRemapMax: 0.5540126
     - _SmoothnessRemapMin: 0
+    - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SmoothnessViewAngleOffset: 0.048
+    - _SpecSource: 0
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
@@ -481,6 +506,7 @@ Material:
     - _SubsurfaceRadius: 1
     - _SupportDBuffer: 0
     - _SupportDecals: 1
+    - _Surface: 0
     - _SurfaceType: 0
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
