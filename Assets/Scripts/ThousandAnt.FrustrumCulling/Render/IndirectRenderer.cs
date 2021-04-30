@@ -54,15 +54,15 @@ namespace ThousandAnt.FrustumCulling.Render {
                 argsBuffers[i].SetData(args[i]);
 
                 Graphics.DrawMeshInstancedIndirect(
-                    mesh,
-                    i, 
-                    materials[i], 
-                    new Bounds(Vector3.zero, new Vector3(500, 500, 500)),
-                    argsBuffers[i],
-                    0,
-                    TempBlock,
-                    UnityEngine.Rendering.ShadowCastingMode.On,
-                    true); 
+                    mesh,                                                       // The mesh we should draw
+                    i,                                                          // The submesh index we need to draw
+                    materials[i],                                               // The material that needs to be used to render the elements
+                    new Bounds(Vector3.zero, new Vector3(500, 500, 500)),       // The area  in which the element can appear in
+                    argsBuffers[i],                                             // The indirect arguments which describes how many we are drawing
+                    0,                                                          // The layer we should draw to
+                    TempBlock,                                                  // Empty material block
+                    UnityEngine.Rendering.ShadowCastingMode.On,                 // Draw shadows also
+                    true);                                                      // Receive shadows too
             }
         }
 
@@ -84,7 +84,6 @@ namespace ThousandAnt.FrustumCulling.Render {
                 args[i][3] = (uint)mesh.GetBaseVertex(i);
 
                 argsBuffers[i].SetData(args[i]);
-                // Debug.Log($"{i}: {materials[i]} {mesh} {mesh.GetSubMesh(i).vertexCount}, Args: {args[0]} {args[1]}, {args[2]}, {args[3]}, SUBMESH: {mesh.GetSubMesh(i).indexCount}, {mesh.GetSubMesh(i).indexStart} {mesh.GetSubMesh(i).baseVertex}, Actual Mesh: {mesh.GetIndexCount(i)}");
 
                 // TODO: Support submeshes
                 Graphics.DrawMeshInstancedIndirect(
@@ -125,13 +124,6 @@ namespace ThousandAnt.FrustumCulling.Render {
                 // Set the material's ComputeBuffer
                 materials[i].SetBuffer(ShaderConstants.Matrices, transformBuffer);
             }
-
-            // Update the argument buffer
-            // TODO: Support multiple submeshes
-            // uint indexCount = mesh != null ? mesh.GetIndexCount(0) : 0;
-            // args[0] = indexCount;   // The first arg is the # of indices
-            // args[1] = (uint)count;  // The second arg is the # of elements we want to render
-            // argsBuffers.SetData(args);
         }
 
         void Release(bool releaseArgs) {

@@ -5,6 +5,7 @@
     "com.unity.collections": "0.15.0-preview.21",
     "com.unity.ide.vscode": "1.2.3",
     "com.unity.jobs": "0.8.0-preview.23",
+    "com.unity.probuilder": "5.0.3",
     "com.unity.render-pipelines.universal": "11.0.0",
     "com.unity.test-framework": "1.1.22",
     "com.unity.textmeshpro": "3.0.4",
