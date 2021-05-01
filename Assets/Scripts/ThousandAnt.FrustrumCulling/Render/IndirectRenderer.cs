@@ -67,13 +67,7 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
 
         public void Draw(int2 span, NativeArray<float4x4> matrices) {
-            var data = transformBuffer.BeginWrite<float4x4>(span.x, span.y - span.x);
-
-            unsafe {
-                UnsafeUtility.MemCpy(data.GetUnsafePtr(), matrices.GetUnsafePtr(), matrices.Length * UnsafeUtility.SizeOf<float4x4>());
-            }
-
-            transformBuffer.EndWrite<float4x4>(matrices.Length);
+            transformBuffer.SetData(matrices);
 
             var length = span.y - span.x;
 
