@@ -45,6 +45,8 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
 
         void OnDisable() {
+            beganDraw = false;
+            indirectRenderer.EndDraw(new int2());
             // Complete all jobs before we dispose
             handle.Complete();
 
