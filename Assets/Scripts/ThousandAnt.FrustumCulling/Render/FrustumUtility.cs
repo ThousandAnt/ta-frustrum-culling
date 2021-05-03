@@ -97,7 +97,7 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
     }
 
-    public static unsafe class FrustumUtils {
+    public static unsafe class FrustumUtility {
 
         public static readonly Plane[] Planes = new Plane[6];
 

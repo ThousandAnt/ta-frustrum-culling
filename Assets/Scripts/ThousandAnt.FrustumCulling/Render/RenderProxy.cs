@@ -83,7 +83,7 @@ namespace ThousandAnt.FrustumCulling.Render {
                 var planes = new NativeArray<float4>(6, Allocator.TempJob);
 
                 handle = new EmbedExtentsJob {
-                    Src     = FrustumUtils.GetPlanesArray(),
+                    Src     = FrustumUtility.GetPlanesArray(),
                     Extents = indirectRenderer.Extents,
                     Dst     = planes
                 }.Schedule();

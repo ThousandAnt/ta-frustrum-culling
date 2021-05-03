@@ -4,15 +4,15 @@ namespace ThousandAnt.FrustumCulling.Render {
     internal class FrustumInitializationProxy : MonoBehaviour {
 
         void OnEnable() {
-            FrustumUtils.Initialize();
+            FrustumUtility.Initialize();
         }
 
         void Update() {
-            FrustumUtils.SetFrustumPlanes(Camera.main);
+            FrustumUtility.SetFrustumPlanes(Camera.main);
         }
 
         void OnDisable() {
-            FrustumUtils.Release();
+            FrustumUtility.Release();
         }
     }
 }
