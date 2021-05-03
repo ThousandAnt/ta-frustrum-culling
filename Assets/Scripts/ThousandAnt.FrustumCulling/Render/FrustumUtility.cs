@@ -19,11 +19,11 @@ namespace ThousandAnt.FrustumCulling.Render {
 
         public void Execute() {
             for (int i = 0; i < Src.Length; i++) {
-                // By doing the dot product between the plane's normal and the extents, we can determine whether 
+                // By doing the dot product between the plane's normal and the extents, we can determine whether
                 // each corner of the cube is within the frustum.
                 // If the dot product yields a value less than 0, we know that the element is behind the plane.
                 Dst[i] = new float4(
-                    Src[i].normal, 
+                    Src[i].normal,
                     math.dot(Extents, math.abs(Src[i].normal)) + Src[i].distance);
             }
         }
@@ -32,7 +32,7 @@ namespace ThousandAnt.FrustumCulling.Render {
     // TODO: Check IJobParallelForDefer instead to populate the filtered matrices
     [BurstCompile]
     public unsafe struct PopulateFilteredMatricesJob : IJob {
-        
+
         [WriteOnly]
         public NativeList<float4x4> Dst;
 
@@ -82,7 +82,7 @@ namespace ThousandAnt.FrustumCulling.Render {
 
         public bool Execute(int index) {
             var m = Matrices[index];
-            
+
             for (int i = 0; i < 6; i++) {
                 var plane = Planes[i];
 
