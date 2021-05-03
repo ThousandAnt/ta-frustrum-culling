@@ -1,5 +1,5 @@
 {
-    "name": "ThousandAnt.FrustrumCulling.Editor",
+    "name": "ThousandAnt.FrustumCulling.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:815b25d4f058ade498272b7a233c7dd2",
