@@ -29,6 +29,33 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
     }
 
+    [BurstCompile]
+    public unsafe struct ViewFrustumCullingFilterJob : IJobParallelForFilter {
+
+        [ReadOnly]
+        [DeallocateOnJobCompletion]
+        public NativeArray<float4> Planes;
+
+        [ReadOnly]
+        public NativeArray<float4x4> Matrices;
+
+        public bool Execute(int index) {
+            var m = Matrices[index];
+
+            for (int i = 0; i < 6; i++) {
+                var plane = Planes[i];
+
+                // Take the dot product of our embedded normal with the position and add the distance
+                // If the value is less than 0, then the frustum is behind the plane.
+                if (math.dot(plane.xyz, m.c3.xyz) + plane.w <= 0f) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+
     // TODO: Check IJobParallelForDefer instead to populate the filtered matrices
     [BurstCompile]
     public unsafe struct PopulateFilteredMatricesJob : IJob {
@@ -70,32 +97,7 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
     }
 
-    [BurstCompile]
-    public unsafe struct ViewFrustumCullingFilterJob : IJobParallelForFilter {
 
-        [ReadOnly]
-        [DeallocateOnJobCompletion]
-        public NativeArray<float4> Planes;
-
-        [ReadOnly]
-        public NativeArray<float4x4> Matrices;
-
-        public bool Execute(int index) {
-            var m = Matrices[index];
-
-            for (int i = 0; i < 6; i++) {
-                var plane = Planes[i];
-
-                // Take the dot product of our embedded normal with the position and add the distance
-                // If the value is less than 0, then the frustum is behind the plane.
-                if (math.dot(plane.xyz, m.c3.xyz) + plane.w <= 0f) {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-    }
 
     public static unsafe class FrustumUtility {
 
@@ -132,7 +134,7 @@ namespace ThousandAnt.FrustumCulling.Render {
         }
 
         /// <summary>
-        /// Main thread only utility. Grabs a pointer to the plane.
+        /// Main thread only utility. Grabs a pointer to the plane and treats the pointer as an array.
         /// </summary>
         public static UnsafeReadonlyArray<Plane> GetPlanesArray() {
             if (!PlanesHandle.IsAllocated) {
